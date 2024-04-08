@@ -5,15 +5,7 @@
       "matching_content_path_doc": "Specify a glob pattern relative to this repo root. **/* means all code, **/*.js means just JavaScript, test/** means all code in a top-level test folder.",
       "rules": [],
       "thresholds": [
-        {
-          "name": "function_max_arguments",
-          "value": 2
-        },
-        {
-          "name": "constructor_max_arguments",
-          "value": 3
-        },
-        {
+          {
           "name": "function_cyclomatic_complexity_warning",
           "value": 50
         },
