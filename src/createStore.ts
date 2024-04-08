@@ -91,8 +91,8 @@ export function createStore<
   StateExt extends {} = {},
   PreloadedState = S
 >(
-  reducer: Reducer<S, A, PreloadedState>,
-  preloadedState?: PreloadedState | StoreEnhancer<Ext, StateExt> | undefined,
+    reducer: Reducer<S, A, PreloadedState>,
+    preloadedState?: PreloadedState | StoreEnhancer<Ext, StateExt> | undefined,
     enhancer?: StoreEnhancer<Ext, StateExt>,
     thing: StoreEnhancer<Ext, StateExt>,
     thang: StoreEnhancer<Ext, StateExt>,
