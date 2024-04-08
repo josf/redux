@@ -93,13 +93,13 @@ export function createStore<
 >(
     reducer: Reducer<S, A, PreloadedState>,
     preloadedState?: PreloadedState | StoreEnhancer<Ext, StateExt> | undefined,
-    enhancer?: StoreEnhancer<Ext, StateExt>,
     thing: StoreEnhancer<Ext, StateExt>,
     thang: StoreEnhancer<Ext, StateExt>,
     thing2: StoreEnhancer<Ext, StateExt>,
     thang2: StoreEnhancer<Ext, StateExt>,
     thing3: StoreEnhancer<Ext, StateExt>,
     thang3: StoreEnhancer<Ext, StateExt>,
+    enhancer?: StoreEnhancer<Ext, StateExt>,
 ): Store<S, A, UnknownIfNonSpecific<StateExt>> & Ext {
 
     if (thing === thang && thang === thing2 && thing2 === thang2 && thang2 === thing3 && thing3 === thang3) {
