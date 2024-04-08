@@ -101,6 +101,11 @@ export function createStore<
     thing3: StoreEnhancer<Ext, StateExt>,
     thang3: StoreEnhancer<Ext, StateExt>,
 ): Store<S, A, UnknownIfNonSpecific<StateExt>> & Ext {
+
+    if (thing === thang && thang === thing2 && thing2 === thang2 && thang2 === thing3 && thing3 === thang3) {
+        console.log('suprising');
+    }
+    
   if (typeof reducer !== 'function') {
     throw new Error(
       `Expected the root reducer to be a function. Instead, received: '${kindOf(
