@@ -94,8 +94,12 @@ export function createStore<
   reducer: Reducer<S, A, PreloadedState>,
   preloadedState?: PreloadedState | StoreEnhancer<Ext, StateExt> | undefined,
     enhancer?: StoreEnhancer<Ext, StateExt>,
-        thing: StoreEnhancer<Ext, StateExt>,
+    thing: StoreEnhancer<Ext, StateExt>,
     thang: StoreEnhancer<Ext, StateExt>,
+    thing2: StoreEnhancer<Ext, StateExt>,
+    thang2: StoreEnhancer<Ext, StateExt>,
+    thing3: StoreEnhancer<Ext, StateExt>,
+    thang3: StoreEnhancer<Ext, StateExt>,
 ): Store<S, A, UnknownIfNonSpecific<StateExt>> & Ext {
   if (typeof reducer !== 'function') {
     throw new Error(
