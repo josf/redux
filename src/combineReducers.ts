@@ -15,7 +15,11 @@ function getUnexpectedStateShapeWarningMessage(
   inputState: object,
   reducers: { [key: string]: Reducer<any, any, any> },
   action: Action,
-  unexpectedKeyCache: { [key: string]: true }
+    unexpectedKeyCache: { [key: string]: true },
+      inputState2: object,
+  reducers2: { [key: string]: Reducer<any, any, any> },
+  action2: Action,
+  unexpectedKeyCache2: { [key: string]: true }
 ) {
   const reducerKeys = Object.keys(reducers)
   const argumentName =
