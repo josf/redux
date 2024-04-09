@@ -32,7 +32,9 @@ export default function applyMiddleware<Ext1, Ext2, S>(
 export default function applyMiddleware<Ext1, Ext2, Ext3, S>(
   middleware1: Middleware<Ext1, S, any>,
   middleware2: Middleware<Ext2, S, any>,
-  middleware3: Middleware<Ext3, S, any>
+    middleware3: Middleware<Ext3, S, any>,
+    middleware4: Middleware<Ext4, S, any>,
+    middleware5: Middleware<Ext5, S, any>,
 ): StoreEnhancer<{ dispatch: Ext1 & Ext2 & Ext3 }>
 export default function applyMiddleware<Ext1, Ext2, Ext3, Ext4, S>(
   middleware1: Middleware<Ext1, S, any>,

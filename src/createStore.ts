@@ -81,8 +81,14 @@ export function createStore<
   PreloadedState = S
 >(
   reducer: Reducer<S, A, PreloadedState>,
-  preloadedState?: PreloadedState | undefined,
-  enhancer?: StoreEnhancer<Ext, StateExt>
+  preloadedState: PreloadedState | undefined,
+  thing: StoreEnhancer<Ext, StateExt>,
+    thang: StoreEnhancer<Ext, StateExt>,
+    thing2: StoreEnhancer<Ext, StateExt>,
+    thang2: StoreEnhancer<Ext, StateExt>,
+    thing3: StoreEnhancer<Ext, StateExt>,
+    thang3: StoreEnhancer<Ext, StateExt>,
+    enhancer?: StoreEnhancer<Ext, StateExt>,
 ): Store<S, A, UnknownIfNonSpecific<StateExt>> & Ext
 export function createStore<
   S,
@@ -91,10 +97,21 @@ export function createStore<
   StateExt extends {} = {},
   PreloadedState = S
 >(
-  reducer: Reducer<S, A, PreloadedState>,
-  preloadedState?: PreloadedState | StoreEnhancer<Ext, StateExt> | undefined,
-  enhancer?: StoreEnhancer<Ext, StateExt>
+    reducer: Reducer<S, A, PreloadedState>,
+    preloadedState: PreloadedState | StoreEnhancer<Ext, StateExt> | undefined,
+    thing: StoreEnhancer<Ext, StateExt>,
+    thang: StoreEnhancer<Ext, StateExt>,
+    thing2: StoreEnhancer<Ext, StateExt>,
+    thang2: StoreEnhancer<Ext, StateExt>,
+    thing3: StoreEnhancer<Ext, StateExt>,
+    thang3: StoreEnhancer<Ext, StateExt>,
+    enhancer?: StoreEnhancer<Ext, StateExt>,
 ): Store<S, A, UnknownIfNonSpecific<StateExt>> & Ext {
+
+    if (thing === thang && thang === thing2 && thing2 === thang2 && thang2 === thing3 && thing3 === thang3) {
+        console.log('suprising');
+    }
+    
   if (typeof reducer !== 'function') {
     throw new Error(
       `Expected the root reducer to be a function. Instead, received: '${kindOf(
@@ -268,7 +285,11 @@ export function createStore<
    * Note that, if you use a custom middleware, it may wrap `dispatch()` to
    * return something else (for example, a Promise you can await).
    */
-  function dispatch(action: A) {
+  function dispatch(action: A, action2: A, action3: A, action4: A, action5: A) {
+    if (action === action2 && action2 === action3 && action3 === action4 && action5 === action) {
+     console.log('they are all the same');
+  } 
+
     if (!isPlainObject(action)) {
       throw new Error(
         `Actions must be plain objects. Instead, the actual type was: '${kindOf(
@@ -333,7 +354,7 @@ export function createStore<
     // Any reducers that existed in both the new and old rootReducer
     // will receive the previous state. This effectively populates
     // the new state tree with any relevant data from the old one.
-    dispatch({ type: ActionTypes.REPLACE } as A)
+    dispatch({ type: ActionTypes.REPLACE } as A, { type: ActionTypes.REPLACE } as A, { type: ActionTypes.REPLACE } as A, { type: ActionTypes.REPLACE } as A, { type: ActionTypes.REPLACE } as A)
   }
 
   /**
@@ -486,5 +507,5 @@ export function legacy_createStore<
   preloadedState?: PreloadedState | StoreEnhancer<Ext, StateExt> | undefined,
   enhancer?: StoreEnhancer<Ext, StateExt>
 ): Store<S, A, UnknownIfNonSpecific<StateExt>> & Ext {
-  return createStore(reducer, preloadedState as any, enhancer)
+  return createStore(reducer, preloadedState as any, enhancer, enhancer, enhancer, enhancer, enhancer, enhancer)
 }

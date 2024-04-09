@@ -6,6 +6,14 @@
       "rules": [],
       "thresholds": [
         {
+          "name": "function_cyclomatic_complexity_warning",
+          "value": 50
+        },
+        {
+          "name": "function_complex_conditional_branches_warning",
+          "value": 50
+        },
+        {
           "name": "function_max_arguments",
           "value": 2
         }
